@@ -7,12 +7,9 @@ const resetbtn = document.getElementById('reset');
 
 incrementbtn.addEventListener('click', () =>
  {
-    if(counter>=15)
-      alert('you added more 10');
     
         counter++;
-        countervalue.innerHTML = counter;
-     
+        countervalue.innerHTML = counter;     
 });
 
 decrementbtn.addEventListener('click',() =>
