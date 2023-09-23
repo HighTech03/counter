@@ -1,31 +1,35 @@
-let counter=0;
+let c=0;
 
-const countervalue = document.getElementById("display");
-const incrementbtn = document.getElementById("btnNxt");
-const decrementbtn = document.getElementById("btnPre");
+const count = document.getElementById("count");
+const error = document.getElementById("error"); 
+const incbtn = document.getElementById("incr");
+const decbtn = document.getElementById("decr");
 const resetbtn = document.getElementById('reset');
 
-incrementbtn.addEventListener('click', () =>
- {
-    
-        counter++;
-        countervalue.innerHTML = counter;     
-});
-
-decrementbtn.addEventListener('click',() =>
+count.textContent = c;
+function incr()
 {
-    if(counter<=0)
-    counter=0;
- else
- {
-    counter--;
-    countervalue.innerHTML = counter;
- }
-});
+   c++;
+   count.textContent = c;
+}
+const decr = () =>
+{
+   if (c > 0)
+   {
+      c--;
+      count.textContent = c;
+   }
+   else
+   {
+      error.style.display="block";
+      error.textContent = "Don't go below zero";
 
-resetbtn.addEventListener('click', reset );
-
- function reset() {
-    counter = 0;
-    countervalue.innerHTML = counter;
- }
+   }
+}
+const reset = () => {
+   c = 0;
+   count.textContent = c;
+}
+incbtn.addEventListener('click',incr);
+decbtn.addEventListener('click',decr);
+resetbtn.addEventListener('click',reset);
